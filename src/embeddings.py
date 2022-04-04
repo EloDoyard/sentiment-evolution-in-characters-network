@@ -7,6 +7,8 @@ import json
 from nltk.stem.wordnet import WordNetLemmatizer
 import nltk
 from gensim.models import Word2Vec, FastText
+from sklearn.decomposition import PCA
+import plotly.express as px
 
 
 def get_name_window(total_word_index, gutenberg_id, window_size=3):
@@ -191,7 +193,7 @@ def get_book_df(gutenberg_id, grouped_entities=False):
     '''
     
     # check if df already exists on the disk
-    book_csv_path = f'../data/book_dfs/rouge_noir_df.csv'
+    book_csv_path = f'../data/book_dfs/red_black_df.csv'
     if grouped_entities:
         book_csv_path = f'../data/book_dfs/{gutenberg_id}_grouped.csv'
     if os.path.isfile(book_csv_path):
@@ -298,3 +300,49 @@ def get_entities_embeddings(gutenberg_id, emb_model, grouped_entities=False):
             ent_vectors[n] = emb_model.wv[n]
             
     return ent_vectors
+
+def plot_embeddings_2D(gutenberg_id, emb_vectors, title, max_vectors=None, min_count=5, grouped_entities=False):
+    '''Given the book DF, the embedding vectors and the title, plots them in 2D, using PCA for
+    the dimensionality reduction.
+
+    Parameters
+    ----------
+    gutenberg_id : int
+        The book's Project Gutenberg ID
+    ent_vectors : dictionary
+        A dictionary containing each entity and their associated embedding vector
+    title : str
+        The plot's title
+    max_vectors : int, optional
+        The maximum number of entities to display in the plot. If not None, the max_vector most common
+        entities will be plotted (default is None)
+    min_count : int, optional
+        The minimum amount of times any entity needs to appear in the books in order for it to be
+        plotted (default is 5)
+    grouped_entities : bool, optional
+        Flag indicating whether the NER pipeline used to create the entities was configured to output 
+        grouped_entities or not (default is False)
+    '''
+    
+    # get entities and apply min_count
+    book_df = get_book_df(gutenberg_id, grouped_entities).drop_duplicates('total_word_index')
+    tmp_df = book_df.groupby(['full_word']).count().reset_index()
+    tmp_df = tmp_df[tmp_df['full_word'].str.isalpha()]
+    tmp_df = tmp_df[tmp_df['score'] >= min_count][['full_word', 'score']]
+    
+    # get embeddings (apply max_vectors if not None)
+    key_list = (tmp_df.sort_values(by='score', ascending=False).reset_index())
+    
+    if max_vectors:
+        key_list = key_list[:max_vectors]
+    key_list = key_list.sort_values(by='full_word')['full_word'].unique()
+    vec_to_plot = { key: emb_vectors[key] for key in key_list if key in emb_vectors}
+        
+    # apply PCA
+    sg_df = pd.DataFrame(vec_to_plot).T
+    pca = PCA(n_components=2)
+    components = pca.fit_transform(sg_df)
+    
+    # plot the vectors
+    fig = px.scatter(components, x=0, y=1, color=sg_df.index, title=title)
+    fig.show()
