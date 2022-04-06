@@ -173,8 +173,8 @@ def get_book_entities(book_pg_id):
         A list of the more laxly matched BookEntity instances
     '''
     
-    luke_df = pd.read_csv(f'../data/book_dfs/luke_{book_pg_id}_df.csv', skiprows=[0],
-                          names=['full_word', 'sentence_word_index', 'total_word_index'])
+    luke_df = pd.read_csv(f'../data/book_dfs/rouge_noir_df.csv', skiprows=[0],
+                          names = ['full_word','sentence_word_index','total_word_index','score'])
 
     french_stopwords = []
     with open('../data/stopwords-fr.txt', 'r') as f:

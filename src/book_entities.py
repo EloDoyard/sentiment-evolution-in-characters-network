@@ -44,7 +44,7 @@ french_gender_from_honorifics = {'Mr':'M', 'Mrs':'F','Miss':'F','Ms':'F','Dr':'M
         'Rev Dr':None,'Sénateur':'M', 'Sénatrice':'F', 'Shérif':None, 'Shériffe':'F','Sir':'M','Sir & Lady':None,'Soeur':'F', 'tante':'F', 'oncle':'M','Le Comte de':'M',
         "L'Honorable":None,"L'Honorable Dr":None, "L'Honorable Dame":'F', "Monseigneur":'M', "L'Honorable Monseigneur":'M', "L'honorable Madame":'F',
         "L'honorable Monsieur":'M','Le très honorable':'M', 'La très honorable':'M','Le très honorable Docteur':'M','La très honorable docteur':'F',
-        'Le très honorable monseigneur':'M','le très honorable monsieur':'M','le très honorable vicomte':'M','vicomte':'M', 'vicomtesse':'F', 'la très honorable vicomtesse':'F'
+        'Le très honorable monseigneur':'M','le très honorable monsieur':'M','le très honorable vicomte':'M','vicomte':'M', 'vicomtesse':'F', 'la très honorable vicomtesse':'F', 'M de la': 'M', 'M de':'M', 'Mlle de la':'F', 'M de la':'M', 'Mme de': 'F', 'Mme de la':'F', 'Abbé':'M', 'Marquis de la':'M', 'Marquis de':'M', 'Marquise de la':'F', 'Marquise de':'F','Messieurs':'M'
                                 }
 french_honorific = french_gender_from_honorifics.keys()
         
@@ -348,12 +348,12 @@ def phonetically_matches(n1, n2, stricter=True):
     is_nickname : bool
         Whether the two names phonetically match
     '''
-
+    
     soundex = Soundex()
     dmeta = fuzzy.DMetaphone()
     
     if stricter:
-        return (soundex.compare(n1, n2) >= 0) and\
+        return (soundex.compare(n1, n2) >= 0)and\
                (editdistance.eval(fuzzy.nysiis(n1), fuzzy.nysiis(n2)) <= 1) and\
                (editdistance.eval(dmeta(remove_non_ascii_chars(n1))[0], dmeta(remove_non_ascii_chars(n2))[0]) <= 1)
     
