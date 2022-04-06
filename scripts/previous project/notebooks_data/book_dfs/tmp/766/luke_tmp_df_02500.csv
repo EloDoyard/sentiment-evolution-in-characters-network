@@ -1,0 +1,951 @@
+full_word,sentence_word_index,total_word_index
+RICHARD WATSON,0,12
+Mr. Micawber,3,283
+Martha,1,418
+David Copperfield,6,850
+DAVID COPPERFIELD,15,1213
+DAVID COPPERFIELD,4,1202
+Miss Betsey,8,2249
+Betsey,9,2250
+Betsey,4,2448
+Betsey,15,2703
+Betsey,19,2845
+Miss Betsey,0,2872
+Betsey,28,3042
+Miss Betsey,32,3408
+Why Rookery,57,3433
+Heaven,28,3404
+Cookery,4,3442
+Mr. Copperfield,32,3470
+When,43,3481
+David Copperfield,55,3697
+Mr. Copperfield,24,3666
+Miss Betsey,0,3642
+Betsey,9,3852
+Miss Betsey,21,4123
+Peggotty,52,4154
+Betsey,10,4319
+Betsey Trotwood Copperfield,14,4427
+Betsey Trotwood,9,4440
+David,6,4578
+Miss Betsey,15,4587
+Mr. Copperfield,0,4755
+Betsey,0,4857
+David,30,5151
+Miss Betsey,10,5131
+Peggotty,0,5398
+Mr. Chillip,38,5855
+Chillip,9,6025
+Chillip,14,6427
+SHE,13,6646
+SHE,9,6642
+Mr. Chillip,42,6697
+Peggotty,15,7491
+Lazarus,14,7705
+Peggotty,7,7698
+Peggotty,2,7934
+Bodgers,0,8159
+Bodgers,12,8171
+Mr. Chillip,6,8186
+Peggotty,0,8602
+Peggotty,5,8621
+Peggotty,8,8726
+Peggotty,9,9016
+Peggotty,15,9167
+Davy,0,9225
+Peggotty,18,9254
+Peggotty,9,9423
+Peggotty,12,9543
+Davy,3,9943
+Peggotty,0,10035
+Peggotty,23,10137
+Peggotty,1,10171
+Mr. Copperfield,31,10260
+Peggotty,40,10269
+Peggotty,11,10240
+Good Heavens,54,10283
+Peggotty,2,10455
+Peggotty,6,10610
+Peggotty,45,10714
+Peggotty,39,10708
+Peggotty,5,10792
+Davy,29,10823
+Davy,33,10870
+Peggotty,22,10859
+Peggotty,16,10853
+Peggotty,21,10937
+Peggotty,0,11242
+Mr. Murdstone,14,11502
+Jones,23,12157
+Davy,6,12140
+Copperfield,27,12161
+Davy,14,12148
+Murdstone,11,12145
+Copperfield,0,12173
+Murdstone,22,12195
+Murdstone,20,12241
+Brooks,13,12234
+Brooks,10,12253
+Brooks,12,12280
+Murdstone,29,12297
+Brooks,41,12346
+Brooks,21,12326
+Quinion,10,12315
+Murdstone,52,12357
+Quinion,19,12380
+Mr. Quinion,18,12379
+Passnidge,36,12821
+Quinion,9,12794
+Murdstone,17,12851
+Mr. Brooks,13,13008
+Davy,31,13224
+Davy,32,13277
+Copperfield,0,13296
+Peggotty,13,13389
+Davy,0,13376
+Ma,6,13382
+Peggotty,19,13458
+Peggotty,8,13669
+Ham,12,13673
+Grayper,0,13891
+Grayper,0,13894
+Grayper,0,13934
+Peggotty,0,14314
+Peggotty,0,14546
+But Peggotty,0,14835
+Mas’r Davy,31,15429
+Ham,36,15434
+Aladdin,4,15440
+Daniel,11,15749
+Abraham,0,15738
+Isaac,6,15744
+Sarah Jane,11,15778
+Peggotty,25,15892
+Ham,25,16157
+Mr. Peggotty,16,16319
+How,57,16360
+Peggotty,9,16488
+Little Em’ly,0,16652
+Peggotty,0,16692
+Peggotty,0,16708
+Peggotty,1,16785
+Joe,0,16915
+Peggotty,8,16923
+Peggotty,14,16929
+Peggotty,31,16946
+Drowndead,26,16941
+Ham,10,16958
+Peggotty,7,16955
+Tom,7,17037
+Peggotty,24,17054
+Peggotty,41,17071
+Drowndead,36,17066
+Peggotty,18,17190
+Peggotty,25,17197
+Peggotty,5,17177
+Peggotty,11,17183
+Gummidge,0,17172
+Gummidge,8,17180
+Gummidge,0,17280
+Peggotty,9,17306
+Peggotty,20,17582
+Em’ly,6,17773
+Em’ly,6,17955
+Dan,27,18043
+Dan,34,18050
+Dan,47,18063
+Dan is Mr. Peggotty,34,18050
+Peggotty,18,18162
+Emily,0,18266
+Ham,6,18302
+Em’ly,35,18648
+Peggotty,20,19019
+Peggotty,35,19058
+Em’ly,8,19091
+Time,8,19234
+Em’ly,2,19255
+Em’ly,18,19313
+Peggotty,25,19467
+Gummidge,0,19442
+Gummidge,0,19470
+Gummidge,0,19519
+Peggotty,1,19542
+Gummidge,0,19615
+Peggotty,38,19833
+Gummidge,0,19912
+Peggotty,4,19940
+Gummidge,0,19950
+Peggotty,0,19965
+Em’ly,16,19987
+Ham,0,19971
+Peggotty,19,20075
+Mawther,33,20089
+Peggotty,38,20094
+Gummidge,0,20056
+Gummidge,0,20101
+Mr. Peggotty,50,20162
+Peggotty,51,20163
+Mr. Peggotty,32,20203
+Dan’l,11,20182
+Gummidge,0,20171
+Mr. Peggotty,14,20233
+Gummidge,0,20219
+Gummidge,0,20255
+Mr. Peggotty,31,20305
+Peggotty,2,20425
+Gummidge,0,20438
+Master Davy,10,20540
+Gummidge,0,20562
+Dan’l,0,20645
+Gummidge,0,20664
+Peggotty,11,20756
+Gummidge,0,20745
+Gummidge,26,20771
+And,34,20833
+Ham,17,20816
+Gummidge,0,20836
+Peggotty,19,20895
+Ham,31,20907
+Peggotty,8,21073
+Em’ly,10,21086
+Gummidge,0,21076
+Peggotty,1,21307
+Blunderstone Rookery,0,21334
+Peggotty,31,21476
+Master Davy,53,21551
+Master Davy,10,21585
+Peggotty,15,21590
+Gummidge,0,22413
+Poor Peggotty,10,22760
+Peggotty,7,22757
+Peggotty,22,22932
+Murdstone,3,22949
+David,17,23145
+Gummidge,0,23610
+God,9,23708
+Murdstone,16,24328
+Murdstone,8,24687
+Murdstone,3,25084
+Murdstone,16,25174
+Murdstone,1,25159
+Murdstone,1,25199
+Clara,56,25284
+Mr. Murdstone,52,25280
+She,0,25228
+Edward,30,25375
+Peggotty,13,25358
+Miss Murdstone,34,25379
+Jane Murdstone,6,25583
+Edward,6,25842
+Ask Peggotty,0,25881
+Edward,18,25974
+Jane,0,25990
+Jane Murdstone,24,26023
+Mr. Murdstone,29,26028
+Murdstone,34,26221
+Murdstone,8,26257
+Murdstone,1,27341
+Mr. Murdstone,39,27410
+Clara,35,27406
+Davy,29,27400
+Davy,9,27429
+Davy,7,27427
+Jane,31,27527
+Davy,2,27531
+Murdstone,1,27677
+Clara,6,28152
+Murdstones,24,28210
+Peregrine Pickle,9,28363
+Gil Blas,26,28380
+Don Quixote,23,28377
+Tom Jones,15,28369
+Humphrey Clinker,12,28366
+Roderick Random,6,28360
+Robinson Crusoe,30,28384
+Vicar of Wakefield,19,28373
+Tom Jones,3,28542
+Tom Jones,9,28548
+Roderick Random,7,28567
+Miss Murdstone,19,28921
+Edward,3,29019
+Edward,13,29029
+Clara,16,29032
+Mr. Murdstone,20,29036
+Jane,11,29063
+David,27,29098
+Mr. Murdstone,14,29085
+Clara,0,29417
+David,0,29434
+Clara,5,29466
+Peggotty,27,29731
+Miss Murdstone,50,29954
+Peggotty,27,30802
+Murdstone,3,30778
+How,22,30797
+Peggotty,5,30869
+Davy,19,31056
+Davy,0,31115
+Davy,11,31190
+Peggotty,6,31227
+Peggotty,24,31273
+Peggotty,45,31294
+Peggotty,5,31254
+Em’ly,9,31305
+Peggotty,12,31401
+Master Copperfield,28,31715
+Miss Murdstone,15,31702
+Miss Murdstone,36,31723
+Peggotty,3,31737
+Murdstone,15,31749
+God,0,31873
+Clara,6,31879
+Peggotty,14,31985
+Peggotty,5,32040
+Peggotty,20,32326
+Near London,51,32509
+Barkis,21,32768
+Peggotty,6,32878
+Barkis,17,32914
+Barkis,0,33096
+Mr. Barkis,16,33112
+Barkis,17,33113
+Barkis,26,33175
+Em’ly,7,33364
+Topsawyer,33,34356
+Peggotty,25,34781
+Mr. Murdstone,45,36019
+Peggotty,13,35987
+I,0,36347
+Murdstone,36,36607
+Sooffolk,41,36612
+Murdstone,11,37037
+David Copperfield,28,38869
+Fibbitson,0,38999
+Mell,23,39373
+Mr. Mell,22,39372
+Mr. Mell,29,39416
+Creakle,2,39554
+Creakle,18,39570
+Mr. Mell,0,39830
+Copperfield,4,40049
+Steerforth,0,40432
+Tommy Traddles,6,40470
+George Demple,5,40496
+Mr. Peggotty,25,40643
+Mr. Mell,37,40735
+Murdstone,2,40749
+Mr. Mell,10,40886
+Mell,27,41033
+Mr. Mell,26,41032
+Peggotty,26,41116
+Creakle,39,41206
+Steerforth,0,41167
+Mr. Creakle,45,41369
+Creakle,10,41474
+Mell,7,41471
+Mr. Creakle,27,41601
+Creakle,0,41623
+Creakle,54,41677
+Creakle,19,41642
+Creakle,3,41626
+Creakle,8,41740
+Creakle,1,41733
+Creakle,1,41745
+Mr. Creakle,53,41945
+Mr. Creakle,13,41905
+Mr. Creakle,4,42072
+Creakle,5,42106
+Creakle,15,42148
+Creakle,29,42315
+Creakle,0,42342
+Creakle,27,42390
+Creakle,10,42416
+Creakle,0,42429
+Creakle,18,42473
+Miss Creakle,17,42472
+Creakle,0,42604
+Sharp,3,42695
+Mell,11,42710
+Sharp,1,42700
+Sharp,11,42723
+Creakle,17,42729
+Tommy Traddles,5,42829
+Traddles,8,42916
+Steerforth,9,43503
+Traddles,16,43977
+Creakle,0,44127
+Tungay,13,44160
+Creakle,10,44204
+Creakle,9,44233
+Tungay,11,44235
+Creakle,20,44347
+Creakle,4,44331
+Creakle,9,44367
+Steerforth,0,44392
+Steerforth,0,44394
+Mell,7,44511
+Sharp,34,44538
+Creakle,29,44533
+Sharp,4,44566
+Mell,0,44760
+Copperfield,4,44981
+Creakle,4,45172
+Tungay,0,45168
+Creakle,1,45205
+Tungay,8,45212
+Creakle,26,45479
+Creakle,17,45550
+Mr. Creakle,0,45979
+Steerforth,12,46228
+Traddles,3,46248
+Creakle,24,46291
+Traddles,5,46486
+Steerforth,13,46518
+Beadle,20,46525
+Traddles,24,46529
+Steerforth,0,46599
+Steerforth,2,46658
+Creakle,16,46672
+Steerforth,1,46734
+Sharp,1,46769
+Mell,4,46772
+Steerforth,14,46782
+Steerforth,0,46794
+Mr. Creakle,13,46834
+Creakle,15,46909
+Steerforth,7,46968
+Steerforth,20,47136
+Copperfield,16,47132
+Steerforth,43,47325
+Steerforth,0,47485
+Traddles,31,47516
+Peregrine,11,47820
+Gil Blas,44,47973
+Gil Blas,36,47965
+Mr. Mell,7,48260
+Steerforth,8,48284
+Steerforth,15,48323
+Steerforth,13,48367
+Mell,0,48354
+Creakle,4,48461
+Mell,21,48652
+Sharp,10,48641
+Mr. Mell,17,48686
+Steerforth,0,48952
+Mell,49,49021
+Mr. Mell,20,48992
+Mr. Mell,34,49006
+Steerforth,17,49208
+Mr. Mell,50,49241
+Steerforth,16,49265
+Steerforth,12,49384
+Young Copperfield,7,49379
+Copperfield,0,49372
+Mell,6,49403
+Creakle,12,49652
+Tungay,23,49726
+Creakle,32,49778
+Steerforth,35,49781
+Steerforth,7,49805
+Steerforth,48,49875
+Mr. Mell,27,49854
+Creakle,63,49940
+Creakle,8,49885
+Mr. Creakle,7,49884
+Steerforth,32,49909
+Creakle,50,49927
+Mr. Creakle,49,49926
+But,45,49988
+Here Steerforth,10,50123
+Mr. Mell,55,50424
+Mr. Creakle,7,50376
+Steerforth,3,50372
+Steerforth,39,50408
+Steerforth,23,50458
+Mell,17,50452
+Mell,15,50583
+Creakle,58,50700
+Mr. Creakle,57,50699
+James Steerforth,8,50871
+Traddles,5,51194
+Polly,0,51373
+Steerforth,10,51383
+Steerforth,28,51612
+Steerforth,0,51614
+Mas’r Davy,28,52113
+Peggotty,18,52136
+Ai,10,52128
+Ham,7,52125
+Ai,0,52118
+Peggotty,50,52188
+Mr. Peggotty,34,52172
+Peggotty,6,52198
+Em’ly,11,52203
+Peggotty,11,52218
+Mawther,2,52300
+Peggotty,5,52319
+Mas’r Davy,36,52450
+Gravesen,25,52439
+Peggotty,1,52530
+Ham,53,52649
+Ham,15,52611
+Peggotty,6,52602
+Peggotty,34,52692
+Peggotty,0,52658
+Ham,0,52790
+Copperfield,12,52857
+Steerforth,16,52895
+Steerforth,26,52954
+Good Heaven,6,52934
+Steerforth,32,53205
+Steerforth,52,53225
+Steerforth,4,53177
+Suffolk,1,53231
+Mr. Peggotty,19,53375
+Steerforth,8,53666
+Em’ly,12,53670
+Peggotty,19,53711
+Peggotty,12,53743
+Traddles,1,53764
+How,0,54043
+Mr. Creakle,31,54205
+Barkis,1,54325
+Mr. Barkis,36,54441
+Barkis,44,54500
+Barkis,1,54457
+Mr. Barkis,0,54456
+Mr. Barkis,43,54499
+Peggotty,4,54510
+Barkis,13,54519
+Barkis,51,54639
+Barkis,17,54605
+Mr. Barkis,16,54604
+Mr. Barkis,21,54670
+Mr. Barkis,56,54705
+Chrisen,34,54889
+Peggotty,30,54885
+Barkis,7,54899
+Clara,4,54915
+Barkis,15,54926
+Barkis,20,55008
+Barkis,35,55023
+Mr. Barkis,34,55022
+Steerforth,19,55208
+Mr. Murdstone,21,55291
+God,0,55340
+Peggotty,5,55672
+Murdstone,9,55728
+Peggotty,0,55794
+David,7,55879
+Peggotty,14,56015
+Peggotty,10,56225
+Peggotty,9,56377
+Peggotty,15,56394
+Peggotty,19,56428
+Peggotty,0,56500
+Peggotty,17,56523
+Barkis,18,56718
+Mr. Barkis,17,56717
+Creakle,8,56801
+Mr. Creakle,7,56800
+Steerforth,7,56818
+Peggotty,18,56829
+Peggotty,14,56999
+Peggotty,39,57455
+Peggotty,20,57490
+Barkis,6,57548
+Peggotty,33,57721
+Peggotty,7,57755
+Peggotty,26,58046
+Peggotty,21,58041
+And,0,58020
+Mr. Murdstone,5,58025
+Peggotty,29,58125
+Peggotty,3,58369
+Mr. Copperfield,41,58456
+Peggotty,19,58434
+Peggotty,12,58476
+Peggotty,24,58578
+Steerforth,21,58654
+Murdstone,20,58828
+Murdstone,14,58894
+David,28,58967
+Murdstone,0,59302
+Murdstone,10,59703
+Peggotty,11,59971
+David,31,60042
+Mr. Murdstone,35,60046
+Clara,2,60217
+Miss Murdstone,6,60221
+Clara,3,60374
+Miss Murdstone,7,60378
+Jane,3,60517
+David,8,60586
+David,4,60781
+Steerforth,18,61606
+Creakle,22,61610
+Clara,20,61635
+Clara !,20,61635
+So,0,61804
+Steerforth,2,61870
+David Copperfield,23,62143
+Mr. Sharp,16,62136
+Peggotty,38,62158
+David,38,62204
+Sharp,43,62209
+Mr. Sharp,42,62208
+Creakle,12,62267
+Creakle,0,62284
+David Copperfield,5,62298
+Creakle,0,62304
+Creakle,0,62534
+Creakle,0,62732
+Traddles,10,63067
+Mr. Omer,44,63596
+Minnie,10,63562
+Mr. Omer,17,63759
+Ai,0,63742
+Omer,14,63905
+Minnie,27,64384
+Mr. Omer,36,64508
+Minnie,0,64533
+Mr. Omer,0,64739
+Minnie,0,64865
+Murdstone,3,66137
+David,19,66165
+Master David,18,66164
+Mr. Chillip,18,66199
+Mr. Omer,9,66326
+Peggotty,1,66337
+Grayper,8,66373
+Chillip,11,66376
+Mr. Murdstone,2,66367
+Peggotty,3,66829
+Peggotty,17,66929
+Peggotty,3,67440
+Peggotty,1,67834
+Miss Murdstone,13,67946
+Peggotty,2,67978
+Peggotty,18,68126
+Murdstone,29,68232
+Peggotty,9,68249
+Peggotty,9,68896
+Em’ly,7,69164
+Peggotty,19,69464
+Peggotty,7,69479
+Barkis,1,69473
+Mr. Barkis,35,69541
+Peggotty,0,69546
+Barkis,10,69624
+Peggotty,1,69729
+Barkis,8,69736
+Barkis,27,69755
+Mr. Barkis,5,69805
+Peggotty,0,69888
+Barkis,9,69897
+Peggotty,2,70080
+Peggotty,1,70154
+Ham,3,70156
+Barkis,20,70360
+Barkis,0,70340
+Barkis,3,70343
+Peggotty,12,70441
+Peggotty,20,70520
+Peggotty,37,71067
+Mr. Barkis,3,71033
+Gummidge,0,71094
+Peggotty,40,71216
+Mr. Peggotty,29,71205
+Em’ly,5,71181
+Mawther,7,71272
+Peggotty,12,71277
+Gummidge,0,71265
+Gummidge,0,71291
+Gummidge,0,71321
+Gummidge,0,71389
+Em’ly,5,71438
+Em’ly,16,71482
+And,55,71657
+Why,41,71643
+Oh,26,71628
+YOU,58,71660
+Peggotty,5,71771
+Gummidge,0,71766
+Peggotty,19,71929
+Peggotty,26,71996
+Mr. Peggotty,25,71995
+Mr. Peggotty,30,72301
+Mr. Peggotty,51,72447
+Mr. Peggotty,37,72433
+Mr. Peggotty,14,72508
+Nothing,26,72520
+Mr. Peggotty,26,72633
+Em’ly,6,72839
+Em’ly,21,73061
+Em’ly,7,73122
+Barkis,10,73303
+Mr. Barkis,9,73302
+Barkis,1,73481
+Peggotty,28,73525
+Peggotty,2,73681
+Gummidge,0,73713
+Peggotty,18,73759
+Em’ly,35,73776
+Mr. Barkis,20,73761
+Em’ly,20,73804
+Barkis,18,73824
+Mr. Barkis,17,73823
+Peggotty,0,73842
+Barkis,15,73857
+Mr. Barkis,14,73856
+Barkis,13,73935
+Peggotty,15,73956
+Dan’l,17,73997
+Gummidge,0,73980
+Gummidge,0,74061
+But here Peggotty,30,74110
+Dan’l,7,74087
+Em’ly,13,74146
+Gummidge,0,74161
+Ham,10,74238
+Peggotty,3,74449
+Mr. Barkis,0,74446
+Clara Peggotty,49,74522
+Peggotty,0,74600
+Mr. Barkis,11,74765
+Em’ly,4,74758
+Barkis,9,74910
+Peggotty,12,75157
+Em’ly,17,75162
+Peggotty,13,75234
+Em’ly,20,75256
+Peggotty,1,75261
+Ham,3,75263
+Peggotty,15,75337
+Ham,17,75339
+Em’ly,16,75361
+Gummidge,0,75364
+Peggotty,3,75436
+Mr. Barkis,18,75451
+Barkis,19,75452
+Foxe,8,75544
+Peggotty,5,75661
+Ham,8,75664
+Murdstone,3,76075
+Peggotty,21,76434
+Mr. Murdstone,39,76769
+David Copperfield,26,76802
+Brooks,18,76794
+Brooks,2,76817
+Brooks,12,76827
+Brooks,5,76905
+Mr. Quinion,43,77020
+Brooks,2,77075
+Quinion,24,77154
+Murdstone,13,77143
+Murdstone,24,77209
+Jane Murdstone,5,77292
+David,3,77307
+David,30,77437
+Mr. Quinion,32,77688
+Quinion,55,77711
+Murdstone,54,77767
+Mr. Quinion,36,77749
+Mick Walker,3,78753
+Mealy Potatoes,24,78819
+Mr. Micawber,50,79515
+Quinion,27,79547
+Micawber,22,79542
+Quinion,1,79521
+Mr. Quinion,0,79520
+Micawber,33,79603
+Mr. Murdstone,6,79576
+Micawber,8,79621
+Mr. Micawber,39,79652
+Mr. Micawber,40,79760
+Micawber,10,79785
+Quinion,22,79797
+Quinion,0,79775
+Quinion,1,79841
+Micawber,9,80003
+Micawber,0,80189
+Master Micawber,6,80209
+Micawber,15,80218
+Micawber,28,80407
+Micawber,2,80381
+Micawber,0,80420
+Micawber,4,80491
+Micawber,31,80562
+Micawber,0,80574
+Micawber,0,80638
+Micawber,0,80699
+Micawber,7,80973
+Micawber,0,81053
+Lion,12,81651
+Quinion,11,82377
+God,9,82436
+Mick Walker,14,82783
+Mealy Potatoes,0,82769
+Micawber,1,82870
+Micawber,15,82920
+Micawber,0,82905
+Jack,26,83047
+Nan,32,83053
+Micawber,0,83122
+Micawber,0,83208
+Master Copperfield,9,83225
+Micawber,0,83231
+Micawber,19,83250
+Micawber,0,83274
+Micawber,0,83307
+Micawber,0,83512
+Micawber,1,83601
+Micawber,0,83651
+Micawber,1,83702
+Micawber,0,84031
+Micawber,3,84060
+God,14,84103
+God of day,14,84103
+Micawber,1,84286
+Micawber,0,84391
+Micawber,39,84447
+Hopkins,31,84498
+Hopkins,8,84475
+Mr. Micawber,16,84483
+Micawber,14,84520
+Hopkins,1,84507
+Hopkins,16,84563
+Hopkins,8,84555
+Hopkins,8,84655
+Hopkins,4,84718
+Micawber,0,84734
+Micawber,0,84846
+Orfling,6,84852
+Micawber,10,84897
+Micawber,0,84887
+Micawber,21,85405
+Micawber,0,85412
+Micawber,4,85682
+Micawber,11,85795
+Micawber,1,85807
+Micawber,5,86233
+Mr. Micawber,18,86439
+Micawber,19,86440
+Micawber,1,86519
+Master Copperfield,27,86599
+Micawber,0,86572
+Micawber,5,86669
+Micawber,0,86664
+Micawber,6,86688
+Micawber,0,86704
+Micawber,13,86763
+Micawber,0,86750
+Micawber,21,86771
+Micawber,1,86840
+Copperfield,10,86849
+Micawber,14,86913
+Micawber,0,86998
+Mr. Micawber,16,87014
+Micawber,1,87018
+Micawber,6,87098
+Micawber,0,87105
+Micawber,0,87136
+Micawber,21,87157
+Mr. Micawber,37,87208
+Micawber,38,87209
+Dobbin,16,87274
+Dobbin,10,87268
+Dobbin,4,87262
+Micawber,0,87489
+Micawber,2,87521
+Micawber,0,87611
+Micawber,16,87627
+Micawber,0,87824
+Murdstone,11,88047
+Micawber,0,88147
+Micawber,0,88294
+Wilkins Micawber,16,88365
+Emma,29,88378
+Master Copperfield,25,88422
+Micawber,9,88437
+Micawber,0,88428
+Micawber,9,88583
+Micawber,10,88706
+Micawber,24,88720
+Micawber,0,88770
+Micawber,10,88780
+Micawber,33,88884
+Micawber,0,88889
+Copperfield,27,88930
+Micawber,32,88935
+Micawber,14,89018
+Master Copperfield,31,89108
+Micawber,0,89236
+Orfling,1,89361
+Betsey,40,89466
+Peggotty,0,89874
+Mealy Potatoes,34,90177
+Tipp,23,90166
+Micawber,0,91632
+Mr. Dolloby,52,91704
+Dolloby,55,91707
+Mr. Dolloby,1,91826
+Steerforth,6,92493
+Mr. Dolloby,18,93282
+Oh,43,93711
+Oh,58,93726
+Oh,0,93668
+Charley,17,94196
+Charley,11,94232
+Betsey,42,97216
+Betsey,7,97181
+I,0,97174
+Miss Betsey,41,97215
+Miss Betsey,6,97180
+Blunderstone Rookery,32,97206
+David Copperfield,13,97385
+And,0,97372
+David Copperfield,54,97940
+Mr. Dick,40,97926
+So,0,97886
+David Copperfield,40,97983
+David Copperfield,19,97962
+Mr. Dick,24,97967
+David,0,97993
+David,36,98051
+Dick,33,98048
+Mr. Dick,32,98047
+Betsey Trotwood,5,98087
+Bless,54,98136
+Dick,51,98133
+Mr. Dick,50,98132
+Janet,17,98386
+Mr. Dick,39,98408
+Janet,0,98875
+Janet,6,98965
+Janet,12,99638
+Mr. Dick,26,99652
+David Copperfield,3,100223
+Betsey Trotwood,30,100320
+Jellips,33,100359
+Mr. Dick,46,100418
+Dick,1,101144
+Janet,12,101161
+Mr. Dick,31,101180
+Mr. Murdstone,27,102101
+Janet,18,102221
+Dick,1,102620
+Mr. Dick,37,102681
+Mr. Dick,13,102657
+So,0,102644
+Dick,27,102820
+Mr. Dick,26,102819
+Bedlam,2,102885
+Mr. Dick,20,102928
+Mr. Dick,5,103068
+Mr. Dick,17,103166
+Miss Trotwood,25,103229
+But,0,103204
+Dick,28,103380
+Mr. Dick,27,103379
+Betsey Trotwood,11,103611

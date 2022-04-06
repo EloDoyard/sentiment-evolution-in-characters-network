@@ -72,3 +72,10 @@ dependencies:
     - torchvision == 0.12.0
     - transformers == 4.17.0
     - plotly == 5.6.0
+    - nameparser == 1.1.1
+    - stop-words == 2018.7.23
+    - pyjarowinkler == 1.8
+    - fuzzy == 1.2.2
+    - libindic-utils == 1.0.3 
+    - editdistance == 0.6.0 
+    - libindic-soundex == 1.0.2 
