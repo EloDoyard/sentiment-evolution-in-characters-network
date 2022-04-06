@@ -1,5 +1,14 @@
+from embeddings import *
+from book_entities import *
+from transformers import  FlaubertTokenizer, FlaubertModel
+from itertools import groupby
+from operator import itemgetter
+from functools import reduce
+import numpy as np
+
+
 def get_all_entity_based_BERT_embeddings(gutenberg_id, entities, context_window_size=7, 
-                                         bert_model='bert-large-cased'):
+                                         flaubert_model='flaubert/flaubert_large_cased'):
     '''Given the book ID (and optionally several other settings), returns, for each BookEntity in
     the given list (using a context of the specified size), all the [CLS], [MASK] and mean context 
     embeddings.
@@ -28,9 +37,9 @@ def get_all_entity_based_BERT_embeddings(gutenberg_id, entities, context_window_
     contexts = get_all_name_windows(book_df.drop_duplicates('total_word_index')['total_word_index'].to_list(), 
                          gutenberg_id, window_size=context_window_size)
 
-    # load BERT model and tokenizer
-    tokenizer = BertTokenizer.from_pretrained(bert_model)
-    model = BertModel.from_pretrained(bert_model)
+    # load FlauBERT model and tokenizer
+    tokenizer = FlaubertTokenizer.from_pretrained(flaubert_model)
+    model = FlaubertModel.from_pretrained(flaubert_model)
 
     # get the embeddings
     embeddings_BERT = {}
@@ -47,12 +56,12 @@ def get_all_entity_based_BERT_embeddings(gutenberg_id, entities, context_window_
         
         entity_key_form, entity_address = matching_entity
         entity_idx = context.lower().index(entity_address.lower())
-        text = context[:entity_idx] + '[MASK]' + context[entity_idx+len(entity_address):]
+        text = context[:entity_idx] + '<special1>' + context[entity_idx+len(entity_address):]
 
         # encode context and extract relevant indexes
         encoded_input = tokenizer(text, return_tensors='pt') 
         cls_idx = 0 # it's always the first token
-        mask_idx = encoded_input.input_ids[0].tolist().index(103)
+        mask_idx = encoded_input.input_ids[0].tolist().index(5)
 
         # get the relevant embeddings and add them to the dictionary
         output = model(**encoded_input)
@@ -76,7 +85,7 @@ def get_all_entity_based_BERT_embeddings(gutenberg_id, entities, context_window_
     return embeddings_BERT
 
 def get_averaged_entity_based_BERT_embeddings(gutenberg_id, entities, 
-                                              context_window_size=7, bert_model='bert-large-cased'):
+                                              context_window_size=7, flaubert_model='flaubert/flaubert_large_cased'):
     '''Given the book ID (and optionally several other settings), returns, for each BookEntity in
     the given list, three embeddings: the mean [CLS] vector, the mean [MASK] vector and the mean 
     of the mean context embeddings.
@@ -101,7 +110,7 @@ def get_averaged_entity_based_BERT_embeddings(gutenberg_id, entities,
     '''
 
     # get the embeddings
-    embeddings_BERT = get_all_entity_based_BERT_embeddings(gutenberg_id, entities, context_window_size, bert_model)
+    embeddings_BERT = get_all_entity_based_BERT_embeddings(gutenberg_id, entities, context_window_size, flaubert_model)
     
     # average all the embeddings
     avg_BERT_embs = {}
@@ -164,11 +173,15 @@ def get_book_entities(book_pg_id):
         A list of the more laxly matched BookEntity instances
     '''
     
-    luke_df = pd.read_csv(f'notebooks_data/book_dfs/luke_{book_pg_id}_df.csv', skiprows=[0],
+    luke_df = pd.read_csv(f'../data/book_dfs/luke_{book_pg_id}_df.csv', skiprows=[0],
                           names=['full_word', 'sentence_word_index', 'total_word_index'])
 
+    french_stopwords = []
+    with open('../data/stopwords-fr.txt', 'r') as f:
+        french_stopwords = [*map(str.strip, f.readlines())]
+    
     entity_list = [' '.join([word.strip(',,,.""”’‘\'!?;:-')
-                             for word in row['full_word'].split() if word.lower() not in stop_words]) 
+                             for word in row['full_word'].split() if word.lower() not in french_stopwords]) 
                    for i, row in luke_df.iterrows()]
     entity_list = [(ent, ent.lower(), 1) for ent in entity_list if ent != '']
     entity_list = [reduce(count_reduce, group) for _, group in groupby(sorted(entity_list), key=itemgetter(1))]
