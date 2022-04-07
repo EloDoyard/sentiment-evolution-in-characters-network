@@ -45,7 +45,7 @@ french_gender_from_honorifics = {'Mr':'M', 'Mrs':'F','Miss':'F','Ms':'F','Dr':'M
         "L'Honorable":None,"L'Honorable Dr":None, "L'Honorable Dame":'F', "Monseigneur":'M', "L'Honorable Monseigneur":'M', "L'honorable Madame":'F',
         "L'honorable Monsieur":'M','Le très honorable':'M', 'La très honorable':'M','Le très honorable Docteur':'M','La très honorable docteur':'F',
         'Le très honorable monseigneur':'M','le très honorable monsieur':'M','le très honorable vicomte':'M','vicomte':'M', 'vicomtesse':'F', 'la très honorable vicomtesse':'F', 'M de la': 'M', 'M de':'M', 'Mlle de la':'F', 'M de la':'M', 'Mme de': 'F', 'Mme de la':'F', 'Abbé':'M', 'Marquis de la':'M', 'Marquis de':'M', 'Marquise de la':'F', 'Marquise de':'F','Messieurs':'M'
-                                }
+                                ,'Abesse':'F'}
 french_honorific = french_gender_from_honorifics.keys()
         
 gender_from_honorific = {'Ab"d': 'M', 

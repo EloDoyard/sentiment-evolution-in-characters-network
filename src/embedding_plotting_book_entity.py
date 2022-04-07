@@ -61,7 +61,7 @@ def get_all_entity_based_BERT_embeddings(gutenberg_id, entities, context_window_
         # encode context and extract relevant indexes
         encoded_input = tokenizer(text, return_tensors='pt') 
         cls_idx = 0 # it's always the first token
-        mask_idx = encoded_input.input_ids[0].tolist().index(5)
+        mask_idx = encoded_input.input_ids[0].tolist().index(0) #0,1,5
 
         # get the relevant embeddings and add them to the dictionary
         output = model(**encoded_input)
@@ -173,10 +173,11 @@ def get_book_entities(book_pg_id):
         A list of the more laxly matched BookEntity instances
     '''
     
-    luke_df = pd.read_csv(f'../data/book_dfs/luke_{book_pg_id}_df.csv', skiprows=[0],
-                          names=['full_word', 'sentence_word_index', 'total_word_index'])
-    # luke_df = pd.read_csv(f'../data/book_dfs/798-8.csv', skiprows=[0],
-      #                    names = ['full_word','sentence_word_index','total_word_index','score'])
+    # luke_df = pd.read_csv(f'../data/book_dfs/luke_{book_pg_id}_df.csv', skiprows=[0],
+      #                     names=['full_word', 'sentence_word_index', 'total_word_index'])
+    luke_df = pd.read_csv(f'../data/book_dfs/rouge_noir_df_grouped.csv', skiprows=[0],
+                          names = ['full_word','sentence_word_index','total_word_index','score'])
+    
 
     french_stopwords = []
     with open('../data/stopwords-fr.txt', 'r') as f:

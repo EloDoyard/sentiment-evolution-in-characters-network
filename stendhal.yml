@@ -79,3 +79,4 @@ dependencies:
     - libindic-utils == 1.0.3 
     - editdistance == 0.6.0 
     - libindic-soundex == 1.0.2 
+    - sentencepiece == 0.1.96 
