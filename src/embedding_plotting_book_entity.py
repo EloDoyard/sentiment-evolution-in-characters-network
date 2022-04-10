@@ -50,6 +50,10 @@ def get_all_entity_based_BERT_embeddings(gutenberg_id, entities, context_window_
         for ent in entities:
             for address in ent.all_addresses:
                 if address in context:
+                    print(address)
+                    print(BookEntity.from_list_entity(ent))
+                    print(BookEntity.from_list_entity(ent).get_shortname())
+                    print(address)
                     matching_entity = (BookEntity.from_list_entity(ent).get_shortname(), address)
         if not matching_entity:
             continue
@@ -144,6 +148,14 @@ def plot_entity_embeddings_2D(avg_BERT_embeddings, emb_type='MASK', title_additi
     if emb_type != 'CLS' and emb_type != 'context':
         emb_type = 'MASK'
     vec_to_plot = {key: avg_BERT_embeddings[key][emb_type] for key in avg_BERT_embeddings}
+    
+    for key, value in vec_to_plot.items() :
+        temp_nan =np.isnan(value)
+        temp_infs = np.isinf(value)
+        if any(temp_nan) :
+            print('there is a nan in '+key)
+        if any(temp_infs) :
+            print('there is an infinite in '+key)
         
     # apply PCA
     sg_df = pd.DataFrame(vec_to_plot).T
@@ -198,7 +210,7 @@ def get_book_entities(book_pg_id):
         for ent in all_book_entities:
             if ent.exactly_references_entity(name):
                 ent.merge(name, strictness='exact')
-                merged = True
+                # merged = True
                 break
 
         # create new entity if not compatible with any of the previously existing ones

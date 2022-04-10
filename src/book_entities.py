@@ -817,7 +817,7 @@ class BookListEntity:
         elif strictness == 'exact' and not self.exactly_references_entity(new_name):
             return
         elif strictness == 'textually_close' and not self.textually_close_references_entity(new_name):
-            retrun
+            return
         
 #         # check not already taken into account
 #         # (commented out because these come in handy for the second class, (non-list) BookEntity)

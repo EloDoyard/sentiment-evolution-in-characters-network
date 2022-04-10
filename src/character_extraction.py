@@ -121,7 +121,7 @@ def get_person_entities(gutenberg_id, grouped_entities=False, max_chunk_len=512,
     gutenberg_id : int
         The book's Project Gutenberg ID
     grouped_entities : bool, optional
-        Flag indicating whether the NER pipeline is configured to outout grouped_entities or not 
+        Flag indicating whether the NER pipeline is configured to output grouped_entities or not 
         (default is False)
     max_chunk_len : int, optional
         Maximum character-level length of each sentence passed to the model (default is 512)
@@ -158,8 +158,8 @@ def get_person_entities(gutenberg_id, grouped_entities=False, max_chunk_len=512,
     # model = AutoModelForTokenClassification.from_pretrained(ner_model, max_length = max_chunk_len)
     
     ner_model = 'Jean-Baptiste/camembert-ner'
-    tokenizer = CamembertTokenizer.from_pretrained(ner_model)
-    model = CamembertForTokenClassification.from_pretrained(ner_model)
+    tokenizer = CamembertTokenizer.from_pretrained(ner_model, max_length = max_chunk_len)
+    model = CamembertForTokenClassification.from_pretrained(ner_model, max_length = max_chunk_len)
     
     nlp = pipeline("ner", model=model, tokenizer=tokenizer, grouped_entities = grouped_entities)
     
