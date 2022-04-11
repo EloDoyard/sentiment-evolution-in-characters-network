@@ -193,9 +193,9 @@ def get_book_df(gutenberg_id, grouped_entities=False):
     '''
     
     # check if df already exists on the disk
-    book_csv_path = f'../data/book_dfs/red_black_df.csv'
+    book_csv_path = f'../data/book_dfs/rouge_noir_df.csv'
     if grouped_entities:
-        book_csv_path = f'../data/book_dfs/{gutenberg_id}_grouped.csv'
+        book_csv_path = f'../data/book_dfs/rouge_noir_df_grouped.csv'
     if os.path.isfile(book_csv_path):
         return pd.read_csv(book_csv_path)
     

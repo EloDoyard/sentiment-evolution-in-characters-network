@@ -33,7 +33,7 @@ def get_all_entity_based_BERT_embeddings(gutenberg_id, entities, context_window_
     '''
     
     # get book df, all its entities and all their contexts
-    book_df = get_book_df(gutenberg_id)
+    book_df = get_book_df(gutenberg_id, grouped_entities = True)
     contexts = get_all_name_windows(book_df.drop_duplicates('total_word_index')['total_word_index'].to_list(), 
                          gutenberg_id, window_size=context_window_size)
 
@@ -44,16 +44,11 @@ def get_all_entity_based_BERT_embeddings(gutenberg_id, entities, context_window_
     # get the embeddings
     embeddings_BERT = {}
     for i, context in enumerate(tqdm(contexts)):
-
         # prepare context for embedding
         matching_entity = None
         for ent in entities:
             for address in ent.all_addresses:
-                if address in context:
-                    print(address)
-                    print(BookEntity.from_list_entity(ent))
-                    print(BookEntity.from_list_entity(ent).get_shortname())
-                    print(address)
+                if address in context.lower():
                     matching_entity = (BookEntity.from_list_entity(ent).get_shortname(), address)
         if not matching_entity:
             continue
@@ -166,6 +161,10 @@ def plot_entity_embeddings_2D(avg_BERT_embeddings, emb_type='MASK', title_additi
     fig = px.scatter(components, x=0, y=1, color=sg_df.index, 
                      title=f'{emb_type} BERT embeddings {title_addition}',
                      color_discrete_sequence=px.colors.qualitative.Alphabet)
+    fig.update_layout(
+    autosize=False,
+    width=700,
+    height=700,)
     fig.show()
     
 def get_book_entities(book_pg_id):
