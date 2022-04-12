@@ -44,9 +44,9 @@ french_gender_from_honorifics = {'Mr':'M', 'Mrs':'F','Miss':'F','Ms':'F','Dr':'M
         'Rev Dr':None,'Sénateur':'M', 'Sénatrice':'F', 'Shérif':None, 'Shériffe':'F','Sir':'M','Sir & Lady':None,'Soeur':'F', 'tante':'F', 'oncle':'M','Le Comte de':'M',
         "L'Honorable":None,"L'Honorable Dr":None, "L'Honorable Dame":'F', "Monseigneur":'M', "L'Honorable Monseigneur":'M', "L'honorable Madame":'F',
         "L'honorable Monsieur":'M','Le très honorable':'M', 'La très honorable':'M','Le très honorable Docteur':'M','La très honorable docteur':'F',
-        'Le très honorable monseigneur':'M','le très honorable monsieur':'M','le très honorable vicomte':'M','vicomte':'M', 'vicomtesse':'F', 'la très honorable vicomtesse':'F', 'M de la': 'M', 'M de':'M', 'Mlle de la':'F', 'M de la':'M', 'Mme de': 'F', 'Mme de la':'F', 'Abbé':'M', 'Marquis de la':'M', 'Marquis de':'M', 'Marquise de la':'F', 'Marquise de':'F','Messieurs':'M'
-                                ,'Abesse':'F'}
-french_honorific = french_gender_from_honorifics.keys()
+        'Le très honorable monseigneur':'M','Le très honorable monsieur':'M','Le très honorable vicomte':'M','Vicomte':'M', 'Vicomtesse':'F', 'La très honorable vicomtesse':'F', 'M de la': 'M', 'M de':'M', 'Mlle de la':'F', 'M de la':'M', 'Mme de': 'F', 'Mme de la':'F', 'Abbé':'M', 'Marquis de la':'M', 'Marquis de':'M', 'Marquise de la':'F', 'Marquise de':'F','Messieurs':'M'
+                                ,'Abesse':'F', 'Mgr':'M', 'Evêque':'M','Évêque':'M', 'Empereur':'M', 'Maréchal':'M', 'Maréchale':'F','m':'M', 'Chevalier':'M', 'Vicaire':'M', 'Mademoiselle':'F', 'Madamemoiselle':'F', 'Mademosselle':'F', 'Évoque':'M'}
+french_honorific = [w.lower() for w in french_gender_from_honorifics.keys()]
         
 gender_from_honorific = {'Ab"d': 'M', 
                          'Admo"r': 'M', 
@@ -253,6 +253,7 @@ class NameDenormalizer(object):
             return default
         
 constants = Constants()
+constants.titles.remove(*constants.titles)
 constants.titles.add(*[h for h in french_honorific])
 
 french_stopwords = []

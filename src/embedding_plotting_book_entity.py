@@ -201,7 +201,8 @@ def get_book_entities(book_pg_id):
     entity_list = [reduce(count_reduce, group) for _, group in groupby(sorted(entity_list), key=itemgetter(1))]
 
     final_entity_list = [ent[0] for ent in entity_list if ent[2] > 4]
-
+    
+    # final_entity_list = [i.lower() for i in final_entity_list]
     all_book_entities = []
     for name in final_entity_list:
         # merge with already existing entity if possible
