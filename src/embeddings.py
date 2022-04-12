@@ -9,6 +9,7 @@ import nltk
 from gensim.models import Word2Vec, FastText
 from sklearn.decomposition import PCA
 import plotly.express as px
+import string
 
 
 def get_name_window(total_word_index, gutenberg_id, window_size=3):
@@ -41,6 +42,41 @@ def get_name_window(total_word_index, gutenberg_id, window_size=3):
     
     word_window = book_words[max(total_word_index - window_size, 0): total_word_index + window_size]
     return re.sub(r' ([^a-zA-Z0-9À-ÿ]) ', '[_]\g<0>[_] ', ' '.join(word_window)).replace('[_] ', '')
+
+def get_all_name_windows_for_entities(total_word_indexes, gutenberg_id, window_size=3):
+    '''Given several word indexes in the book, and the ID of the book, returns the book windows surrounding 
+    each of those words.
+
+    Parameters
+    ----------
+    total_word_indexes : list
+        The list of book-wise indexes of the words for which to extract the context
+    gutenberg_id : int
+        The book's Project Gutenberg ID
+    window_size : int, optional
+        The context window size, in number of words, both backwards and forward (i.e. a window_size 
+        of 3 will return a context of 7 words (3 + 1 + 3)) (default is 3)
+
+    Returns
+    -------
+    contexts : list
+        The list of contexts surrounding each given word's indexes
+    '''
+    
+    book_text = get_book_text(gutenberg_id)
+
+    # prepare for iteration over the book
+    book_words = [w if w != 'word_tokenize_splits_cannot_into_2_words' else 'cannot'
+              for w in word_tokenize(re.sub(r'[^a-zA-Z0-9À-ÿ]', ' \g<0> ', 
+                                            ' '.join(re.split(r'(?<=[^A-Z].[.?]) +(?=[A-Z])', book_text))
+                                           ).replace('cannot', 'word_tokenize_splits_cannot_into_2_words'))]
+    
+    result = []
+    for total_word_index in tqdm(total_word_indexes):
+        word_window = book_words[max(total_word_index - window_size, 0): total_word_index+1]
+        result.append(re.sub(r' ([^a-zA-Z0-9À-ÿ]) ', '[_]\g<0>[_] ', ' '.join(word_window)).replace('[_] ', ''))
+    
+    return result
 
 def get_all_name_windows(total_word_indexes, gutenberg_id, window_size=3):
     '''Given several word indexes in the book, and the ID of the book, returns the book windows surrounding 

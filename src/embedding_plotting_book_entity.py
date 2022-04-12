@@ -48,7 +48,7 @@ def get_all_entity_based_BERT_embeddings(gutenberg_id, entities, context_window_
         matching_entity = None
         for ent in entities:
             for address in ent.all_addresses:
-                if address in context.lower():
+                if address.lower() in context.lower():
                     matching_entity = (BookEntity.from_list_entity(ent).get_shortname(), address)
         if not matching_entity:
             continue
@@ -186,22 +186,22 @@ def get_book_entities(book_pg_id):
     
     # luke_df = pd.read_csv(f'../data/book_dfs/luke_{book_pg_id}_df.csv', skiprows=[0],
       #                     names=['full_word', 'sentence_word_index', 'total_word_index'])
-    luke_df = pd.read_csv(f'../data/book_dfs/rouge_noir_df_grouped.csv', skiprows=[0],
-                          names = ['full_word','sentence_word_index','total_word_index','score'])
+    # luke_df = pd.read_csv('../data/book_dfs/final_entities.csv', skiprows=[0],
+                          # names = ['full_word','sentence_word_index','total_word_index','score'])
+    luke_df = pd.read_csv(f'../data/book_dfs/final_entities.csv', skiprows=[0],
+                          names = ['total_word_index'])
     
-
     french_stopwords = []
     with open('../data/stopwords-fr.txt', 'r') as f:
         french_stopwords = [*map(str.strip, f.readlines())]
     
-    entity_list = [' '.join([word.strip(',,,.""”’‘\'!?;:-')
-                             for word in row['full_word'].split() if word.lower() not in french_stopwords]) 
-                   for i, row in luke_df.iterrows()]
-    entity_list = [(ent, ent.lower(), 1) for ent in entity_list if ent != '']
-    entity_list = [reduce(count_reduce, group) for _, group in groupby(sorted(entity_list), key=itemgetter(1))]
+    # entity_list = [' '.join([word.strip(',,,.""”’‘\'!?;:-')
+                            #  for word in row['full_word'].split() if word.lower() not in french_stopwords]) 
+                  #  for i, row in luke_df.iterrows()]
+   #  entity_list = [(ent, ent.lower(), 1) for ent in entity_list if ent != '']
+    # entity_list = [reduce(count_reduce, group) for _, group in groupby(sorted(entity_list), key=itemgetter(1))]
 
-    final_entity_list = [ent[0] for ent in entity_list if ent[2] > 4]
-    
+    final_entity_list = luke_df['total_word_index'].tolist() # [ent[0] for ent in entity_list if ent[2] > 4]
     # final_entity_list = [i.lower() for i in final_entity_list]
     all_book_entities = []
     for name in final_entity_list:
@@ -210,7 +210,7 @@ def get_book_entities(book_pg_id):
         for ent in all_book_entities:
             if ent.exactly_references_entity(name):
                 ent.merge(name, strictness='exact')
-                # merged = True
+                merged = True
                 break
 
         # create new entity if not compatible with any of the previously existing ones
