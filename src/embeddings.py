@@ -1,4 +1,5 @@
 from character_extraction import *
+from book_entities import *
 import re
 import os
 import os.path
@@ -72,11 +73,24 @@ def get_all_name_windows_for_entities(total_word_indexes, gutenberg_id, window_s
                                            ).replace('cannot', 'word_tokenize_splits_cannot_into_2_words'))]
     
     result = []
-    for total_word_index in tqdm(total_word_indexes):
+    for total_word_index in total_word_indexes:
         word_window = book_words[max(total_word_index - window_size, 0): total_word_index+1]
         result.append(re.sub(r' ([^a-zA-Z0-9À-ÿ]) ', '[_]\g<0>[_] ', ' '.join(word_window)).replace('[_] ', ''))
     
     return result
+
+def from_name_window_to_entities (name_window, nlp) :
+    final = []
+    for l in name_window:
+        line_entities = []
+        entities = nlp(l)
+        word_entities = [e['word'] for e in entities if e['entity_group'] == 'PER']
+        for w in l.translate(str.maketrans('', '', string.punctuation)).split(' ') :
+            if w in word_entities or w.lower() in french_honorific :
+                line_entities.append(w)
+        if len(line_entities)>1 or (len(line_entities)==1 and (line_entities[0].lower() not in french_honorific)) :   
+            final.append(' '.join(line_entities))
+    return list(set(final))
 
 def get_all_name_windows(total_word_indexes, gutenberg_id, window_size=3):
     '''Given several word indexes in the book, and the ID of the book, returns the book windows surrounding 

@@ -153,10 +153,6 @@ def get_person_entities(gutenberg_id, grouped_entities=False, max_chunk_len=512,
     book_text =  get_book_text(gutenberg_id)
 
     # load NER model and tokenizer
-    # ner_model = 'mrm8488/mobilebert-finetuned-ner'
-    # tokenizer = AutoTokenizer.from_pretrained(ner_model, max_length = max_chunk_len)
-    # model = AutoModelForTokenClassification.from_pretrained(ner_model, max_length = max_chunk_len)
-    
     ner_model = 'Jean-Baptiste/camembert-ner'
     tokenizer = CamembertTokenizer.from_pretrained(ner_model, max_length = max_chunk_len)
     model = CamembertForTokenClassification.from_pretrained(ner_model, max_length = max_chunk_len)
