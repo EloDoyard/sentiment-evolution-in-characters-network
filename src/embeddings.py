@@ -44,9 +44,9 @@ def get_name_window(total_word_index, gutenberg_id, window_size=3):
     word_window = book_words[max(total_word_index - window_size, 0): total_word_index + window_size]
     return re.sub(r' ([^a-zA-Z0-9À-ÿ]) ', '[_]\g<0>[_] ', ' '.join(word_window)).replace('[_] ', '')
 
-def get_all_name_windows_for_entities(total_word_indexes, gutenberg_id, window_size=3):
-    '''Given several word indexes in the book, and the ID of the book, returns the book windows surrounding 
-    each of those words.
+def get_all_name_windows_for_entities(total_word_indexes, gutenberg_id, window_size=2):
+    '''Given several indexes for an entity in the book, and the ID of the book, returns the context windows surrounding 
+    this entity. The goal is to extract in those contexts all the possible denomiation for this entity.
 
     Parameters
     ----------
@@ -55,13 +55,13 @@ def get_all_name_windows_for_entities(total_word_indexes, gutenberg_id, window_s
     gutenberg_id : int
         The book's Project Gutenberg ID
     window_size : int, optional
-        The context window size, in number of words, both backwards and forward (i.e. a window_size 
-        of 3 will return a context of 7 words (3 + 1 + 3)) (default is 3)
+        The context window size, in number of words, before the entity (i.e. a window_size 
+        of 3 will return a context of 4 words (3 + 1)) (default is 2)
 
     Returns
     -------
     contexts : list
-        The list of contexts surrounding each given word's indexes
+        The list of contexts surrounding each given entity appearance's indexes
     '''
     
     book_text = get_book_text(gutenberg_id)
@@ -74,21 +74,42 @@ def get_all_name_windows_for_entities(total_word_indexes, gutenberg_id, window_s
     
     result = []
     for total_word_index in total_word_indexes:
+        # keep as context : window_size words before the entity and the entity
         word_window = book_words[max(total_word_index - window_size, 0): total_word_index+1]
         result.append(re.sub(r' ([^a-zA-Z0-9À-ÿ]) ', '[_]\g<0>[_] ', ' '.join(word_window)).replace('[_] ', ''))
     
     return result
 
 def from_name_window_to_entities (name_window, nlp) :
+    '''Given list of contexts and a nlp model, returns all the possible denominations of an entity.
+
+    Parameters
+    ----------
+    name_window : list
+        List of word contexts surrounding an entity
+    nlp : pipeline
+        huggingface's NER pipeline object
+
+    Returns
+    -------
+    list
+        The list of strings corresponding to the different names for a same entity.
+    '''
+    
     final = []
     for l in name_window:
+        # initiate list that will contain the entities and honorifics of a context
         line_entities = []
         entities = nlp(l)
+        # list of entities in given context l
         word_entities = [e['word'] for e in entities if e['entity_group'] == 'PER']
         for w in l.translate(str.maketrans('', '', string.punctuation)).split(' ') :
             if w in word_entities or w.lower() in french_honorific :
+                # keep only words that are either an entity of a honorific
                 line_entities.append(w)
-        if len(line_entities)>1 or (len(line_entities)==1 and (line_entities[0].lower() not in french_honorific)) :   
+        if len(line_entities)>1 or (len(line_entities)==1 and (line_entities[0].lower() not in french_honorific)) :
+            # join into a string only the lists that either contain a single word that is not an honorific 
+                # or lists that contain more than 1 word
             final.append(' '.join(line_entities))
     return list(set(final))
 

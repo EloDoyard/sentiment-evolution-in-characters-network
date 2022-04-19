@@ -32,6 +32,7 @@ def get_all_entity_based_BERT_embeddings(gutenberg_id, entities, context_window_
         'context average' embeddings
     '''
     
+    # get list of french stopwords
     french_stopwords = []
     with open('../data/stopwords-fr.txt', 'r') as f:
         french_stopwords = [*map(str.strip, f.readlines())]
@@ -48,6 +49,7 @@ def get_all_entity_based_BERT_embeddings(gutenberg_id, entities, context_window_
     # get the embeddings
     embeddings_BERT = {}
     for i, context in enumerate(tqdm(contexts)):
+        # prepare context for equality check
         processed_context = [w for w in context.split() if w.lower() not in french_stopwords]
         processed_context = ' '.join(processed_context)
         # prepare context for embedding
@@ -66,7 +68,7 @@ def get_all_entity_based_BERT_embeddings(gutenberg_id, entities, context_window_
         # encode context and extract relevant indexes
         encoded_input = tokenizer(text, return_tensors='pt') 
         cls_idx = 0 # it's always the first token
-        mask_idx = encoded_input.input_ids[0].tolist().index(0) #0,1,5
+        mask_idx = encoded_input.input_ids[0].tolist().index(0) # 0,1,5 # WHY THIS VALUE ?
 
         # get the relevant embeddings and add them to the dictionary
         output = model(**encoded_input)
@@ -260,30 +262,62 @@ def get_book_entities(entities_file_path):
     return textually_close_merged_book_entities, lax_merged_book_entities
 
 def construct_groups_tokens(name_df_path, book_pg_id, max_chunk_len = 512, grouped_entities = False, entity_window = 2) :
+    '''Given a dataframe path, computes a collection of grouped tokens defining supposedly a character, 
+            by looking at the before context of each entities
+
+    Parameters
+    ----------
+    name_df_path : string
+        Data path of the CSV to extract the single tokens from
+    book_pg_id : string
+        Book ID of the corresponding corpus extracting grouped tokens from
+    max_chunk_len = 512 : Int, optional
+        Maximum character-level length of each sentence passed to the model (default is 512)
+    grouped_entities = False : Boolean, optional
+        Flag indicating whether the NER pipeline is configured to output grouped_entities or not 
+        (default is False)
+    entity_window = 2 : Int, optional
+        The entity context window size, in number of words forward (i.e. a entity_window 
+        of 3 will return a context of 4 words (3 + 1)) (default is 2)
+        
+    Returns
+    -------
+    textually_close_merged_book_entities: list
+        A list of the textually-close matched BookEntity instances
+    lax_merged_book_entities: list
+        A list of the more laxly matched BookEntity instances
+    '''
     # entity_df = pd.read_csv(f'../data/book_dfs/rouge_noir_df_grouped.csv', skiprows=[0],
       #                    names = ['full_word','sentence_word_index','total_word_index','score'])
     
+    # read the file containing extracted single tokens
     entity_df = pd.read_csv(name_df_path, skiprows=[0],
                           names = ['full_word','sentence_word_index','total_word_index','score'])
     
+    # read list of french stopwords
     french_stopwords = []
     with open('../data/stopwords-fr.txt', 'r') as f:
         french_stopwords = [*map(str.strip, f.readlines())]
     
+    # keep only the most popular single tokens, i.e. the ones that were extracted strictly more than 4 times
     entity_df = entity_df.groupby(entity_df.full_word).agg(
         {'sentence_word_index':list, 'total_word_index':list, 'score':'count'}).reset_index()
     entity_df = entity_df[entity_df.score>4]
     
+    # loead model and tokenizer
     ner_model = 'Jean-Baptiste/camembert-ner'
     tokenizer = CamembertTokenizer.from_pretrained(ner_model, max_length = max_chunk_len)
     model = CamembertForTokenClassification.from_pretrained(ner_model, max_length = max_chunk_len)
-
+    
+    # initialize nlp pipeline
     nlp = pipeline("ner", model=model, tokenizer=tokenizer, grouped_entities = grouped_entities)
     
+    # for each popular entity find all the contexts of each entities in the corpus
     entities_windows = entity_df.total_word_index.apply(
         lambda x: from_name_window_to_entities(
             get_all_name_windows_for_entities(x, book_pg_id, window_size=entity_window), nlp))
     
+    # explode list of contexts entities
     entities_windows = entities_windows.explode().dropna()
     
     return entities_windows.reset_index()['total_word_index']
