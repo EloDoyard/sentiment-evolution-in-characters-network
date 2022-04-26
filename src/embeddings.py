@@ -11,6 +11,7 @@ from gensim.models import Word2Vec, FastText
 from sklearn.decomposition import PCA
 import plotly.express as px
 import string
+from transformers import FlaubertModel, FlaubertTokenizer
 
 
 def get_name_window(total_word_index, gutenberg_id, window_size=3):
@@ -344,6 +345,42 @@ def get_embeddings_model(gutenberg_id, whole_book_embedding=True, embedding_mode
     # create FastText model and return it
     return FastText(all_words, min_count=min_count)
 
+def french_word_embeddings(model_name, gutenberg_id) :
+    # modelname = 'flaubert/flaubert_base_cased' 
+
+    # Load pretrained model and tokenizer
+    flaubert, log = FlaubertModel.from_pretrained(model_name, output_loading_info=True)
+    flaubert_tokenizer = FlaubertTokenizer.from_pretrained(model_name, do_lowercase=False)
+
+    french_stopwords = pd.read_csv('../data/stopwords-fr.txt', header = None)[0].values.tolist()
+    
+    contexts = re.split(r'(?<=[^A-Z].[.?]) +(?=[A-Z])', get_book_text(gutenberg_id))
+
+    embeddings_dict = {}
+
+    for c in tqdm(range(len(contexts))) :
+        context = contexts[c]
+
+        for character in string.punctuation:
+            context = context.replace(character, ' ')
+
+        processed_sentenced = [
+            i for i in context.split(' ') if i !='' and i.lower() not in french_stopwords]
+
+        if processed_sentenced : 
+            token_ids = torch.tensor([flaubert_tokenizer.encode(processed_sentenced)])
+            last_layer = flaubert(token_ids)[0]
+
+            for j in range (1, len(processed_sentenced)-1) :
+                key = processed_sentenced[j-1].lower()
+                value = last_layer[:,j,:]
+                if key in embeddings_dict.keys():
+                    old = embeddings_dict[key]
+                    embeddings_dict[key] = torch.mean(torch.stack([old, value]), dim = 0)
+                else :
+                    embeddings_dict[key] = value
+    return embeddings_dict
+
 def get_entities_embeddings(gutenberg_id, emb_model, grouped_entities=False):
     '''Given the book DF and the embeddings model, returns a dictionary for the embeddings
     corresponding to each entity (entity list obtained from the book's DF).
@@ -367,8 +404,8 @@ def get_entities_embeddings(gutenberg_id, emb_model, grouped_entities=False):
     book_df = get_book_df(gutenberg_id, grouped_entities).drop_duplicates('total_word_index')
     ent_vectors = {}
     for n in book_df['full_word'].unique():
-        if n in emb_model.wv.index_to_key:
-            ent_vectors[n] = emb_model.wv[n]
+        if n in emb_model.keys():
+            ent_vectors[n] = emb_model[n]
             
     return ent_vectors
 
