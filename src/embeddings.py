@@ -356,7 +356,7 @@ def french_word_embeddings(model_name, gutenberg_id) :
     
     book = get_book_text('798-8')
     pattern1 = r"""[,.;@#?!&$\s:]+"""
-    pattern2 = r"""[-']"""
+    pattern2 = r"""[-'_]"""
 
     contexts = re.sub(r'|'.join((pattern1, pattern2)),
                " ",          # and replace it with a single space
