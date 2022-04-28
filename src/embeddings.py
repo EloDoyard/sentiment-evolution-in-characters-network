@@ -354,35 +354,32 @@ def french_word_embeddings(model_name, gutenberg_id) :
 
     french_stopwords = pd.read_csv('../data/stopwords-fr.txt', header = None)[0].values.tolist()
     
-    contexts = re.split(r'(?<=[^A-Z].[.?]) +(?=[A-Z])', get_book_text(gutenberg_id))
+    book = get_book_text('798-8')
+    pattern1 = r"""[,.;@#?!&$\s:]+"""
+    pattern2 = r"""[-']"""
+
+    contexts = re.sub(r'|'.join((pattern1, pattern2)),
+               " ",          # and replace it with a single space
+               book, flags=re.VERBOSE)
+    contexts = [i for i in contexts.split(' ') if i.lower() not in french_stopwords]
 
     embeddings_dict = {}
-
-    for c in tqdm(range(len(contexts))) :
-        context = contexts[c]
-        
-        context = re.sub(r"""
-               [,.;@#?!&$'-]+  # Accept one or more copies of punctuation
-               \ *           # plus zero or more copies of a space,
-               """,
-               " ",          # and replace it with a single space
-               context, flags=re.VERBOSE)
-
-        processed_sentenced = [
-            i for i in context.split(' ') if i !='' and i.lower() not in french_stopwords]
-
-        if processed_sentenced : 
-            token_ids = torch.tensor([flaubert_tokenizer.encode(processed_sentenced)])
+    
+    for i in tqdm(range(0, len(contexts), 510)) :
+        bins = contexts[i:i+510]
+        if bins : 
+            token_ids = torch.tensor([flaubert_tokenizer.encode(bins)])
             last_layer = flaubert(token_ids)[0]
 
-            for j in range (1, len(processed_sentenced)-1) :
-                key = processed_sentenced[j-1].lower()
+            for j in range (1, len(bins)-1) :
+                key = bins[j-1].lower()
                 value = last_layer[:,j,:]
                 if key in embeddings_dict.keys():
                     old = embeddings_dict[key]
                     embeddings_dict[key] = torch.mean(torch.stack([old, value]), dim = 0)
                 else :
                     embeddings_dict[key] = value
+
     return embeddings_dict
 
 def get_entities_embeddings(gutenberg_id, emb_model, grouped_entities=False):
