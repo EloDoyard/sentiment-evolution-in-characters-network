@@ -360,9 +360,13 @@ def french_word_embeddings(model_name, gutenberg_id) :
 
     for c in tqdm(range(len(contexts))) :
         context = contexts[c]
-
-        for character in string.punctuation:
-            context = context.replace(character, ' ')
+        
+        context = re.sub(r"""
+               [,.;@#?!&$'-]+  # Accept one or more copies of punctuation
+               \ *           # plus zero or more copies of a space,
+               """,
+               " ",          # and replace it with a single space
+               context, flags=re.VERBOSE)
 
         processed_sentenced = [
             i for i in context.split(' ') if i !='' and i.lower() not in french_stopwords]
