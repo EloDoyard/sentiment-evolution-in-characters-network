@@ -80,3 +80,4 @@ dependencies:
     - editdistance == 0.6.0 
     - libindic-soundex == 1.0.2 
     - sentencepiece == 0.1.96 
+    - lxml == 4.8.0 
