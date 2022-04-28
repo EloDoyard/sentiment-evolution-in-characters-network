@@ -631,8 +631,8 @@ class BookListEntity:
         hn = HumanName(new_name, constants=constants)
         
         if self.gender == None:
-            updated_gender = gender_from_honorific[hn.title.title()] if hn.title != '' and\
-                                hn.title.title() in honorifics else None
+            updated_gender = french_gender_from_honorifics[hn.title.title()] if hn.title != '' and\
+                                hn.title.title() in french_honorific else None
             self.gender = updated_gender
             
         # add all non-null entries of new_names not already present in entity
