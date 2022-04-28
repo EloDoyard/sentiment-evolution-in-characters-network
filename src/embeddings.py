@@ -379,8 +379,11 @@ def french_word_embeddings(model_name, gutenberg_id) :
                     embeddings_dict[key] = torch.mean(torch.stack([old, value]), dim = 0)
                 else :
                     embeddings_dict[key] = value
+    new_embeddings = {}
+    for key, value in embeddings_dict.items() :
+        new_embeddings[key] = value.detach().numpy()[0]
 
-    return embeddings_dict
+    return new_embeddings
 
 def get_entities_embeddings(gutenberg_id, emb_model, grouped_entities=False):
     '''Given the book DF and the embeddings model, returns a dictionary for the embeddings
