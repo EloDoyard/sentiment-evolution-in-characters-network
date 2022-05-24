@@ -81,3 +81,4 @@ dependencies:
     - libindic-soundex == 1.0.2 
     - sentencepiece == 0.1.96 
     - lxml == 4.8.0 
+    - kneed == 0.7.0
