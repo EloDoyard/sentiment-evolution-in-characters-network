@@ -106,7 +106,7 @@ def from_name_window_to_entities (name_window, nlp) :
         word_entities = [e['word'] for e in entities if e['entity_group'] == 'PER']
         for w in l.translate(str.maketrans('', '', string.punctuation)).split(' ') :
             if w in word_entities or w.lower() in french_honorific :
-                # keep only words that are either an entity of a honorific
+                # keep only words that are either an entity or a honorific
                 line_entities.append(w)
         if len(line_entities)>1 or (len(line_entities)==1 and (line_entities[0].lower() not in french_honorific)) :
             # join into a string only the lists that either contain a single word that is not an honorific 
