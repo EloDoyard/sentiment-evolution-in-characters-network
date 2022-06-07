@@ -82,3 +82,4 @@ dependencies:
     - sentencepiece == 0.1.96 
     - lxml == 4.8.0 
     - kneed == 0.7.0
+    - umap-learn == 0.5.3 
