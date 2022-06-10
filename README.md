@@ -2,7 +2,9 @@
 
 This repo is associated with Eloïse Doyard's student master project at EPFL. The subject of this project is "Dictionary of all novels' characters" and the name of her project is "Characters Relationship Evolution".
 
-AJOUTER ABSTRACT DU RAPPORT
+## Abstract
+
+The task of automatically extracting novels' characters from French literature yet remains unsolved. Moreover, the analysis of the evolution of interpersonal relations between characters using embeddings can reveal interesting results as suggested by the literature. This project is a case study of “Le Rouge et le Noir" written by Stendhal, and has the following goals : implement a pipeline to automatically identify and extract characters of a novel for French literature; and, propose an exploratory analysis of the evolution of relationships between the characters through the study and interpretation of embeddings clusters obtained from interactions between characters. This work gives satisfying results for the extraction of characters, on the one hand, and appears to capture a new interesting way of studying characters relationships, on the other hand.
 
 ## Folder structure
 
@@ -29,7 +31,7 @@ Folders:
 - `stendhal.yml`: yalm file containing all the requirements and dependencies used in this project.
 
 ## Python imports
-To run the code, please install a conda environnment using the following command :
+To run the code, please install a conda environment using the following command :
 ```bash
 conda env create --file=stendhal.yml
 ```
