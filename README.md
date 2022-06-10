@@ -25,9 +25,8 @@ Folders:
     + `book_dfs/`: folder containing the result of the name entity extraction
     + `book_entities/`: folder containing the result of the final characters extraction
     + `dim_reduc/`: folder containing the result of the dimensional reduction of the embeddings for different two-characters relationships
-- `report/`: folder containing the report of this project
-    + TODO
-- `python_parser.py`: python code TODO
+- `report/`: folder containing the report of this project and all the associated files.
+- `python_parser.py`: special class.
 - `stendhal.yml`: yalm file containing all the requirements and dependencies used in this project.
 
 ## Python imports
